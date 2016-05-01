@@ -71,21 +71,6 @@ def w(t,q):
 	return temp2.ix[q]
 
 
-# Graph 10.1
-
-rngt = list(range(30+1))
-rng = list(range(q_low+1, q_up+1))
-graph101 = pd.DataFrame(index=rngt, columns=rng)
-
-for x in rngt:
-    for y in rng:
-	graph101.ix[x,y] = sell_optimal_depth(x,y,kappa)
-
-graph101.plot()
-
-
-
-
 
 
 
@@ -99,4 +84,24 @@ def get_sell_fill_rate(t,q):
 
 def get_buy_fill_rate(t,q):
     return lambda_neg*math.exp(-1*kappa*buy1_optimal_depth(t,q,kappa))
+
+# Graph 10.1
+
+fig1 = plt.figure()
+
+rngt = list(range(30+1))
+rng = list(range(q_low+1, q_up+1))
+graph101 = pd.DataFrame(index=rngt, columns=rng)
+
+for x in rngt:
+    for y in rng:
+	graph101[x,y] = sell_optimal_depth(x,y,kappa)
+
+graph101.plot()
+
+
+
+
+
+
 
