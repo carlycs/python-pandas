@@ -17,7 +17,7 @@ def main():
 	print("It's good to meet you, "+ myName)
 	print('Hi '+ myName + ', Did you know your name is %d letters long?' % len(myName))
 	sendEmailSignUp(myName)
-	sendsms()
+	#sendsms()
 
 
 
@@ -46,12 +46,16 @@ def sendsms():
 	import twilio
 	from twilio.rest import TwilioRestClient
 	# Find these values at https://twilio.com/user/account
-	account_sid = "ACXXXXXXXXXXXXXXXXX"
-	auth_token = "YYYYYYYYYYYYYYYYYY"
+	account_sid = "ACedc1c894fd26744915d97b849XXXXXX"
+	auth_token = "ec7b84e65ef0931ad7f6380dbeXXXXX"
 	client = TwilioRestClient(account_sid, auth_token)
 
-	message = client.messages.create(to="+12316851234", from_="+15555555555",
-	                                     body="Hello there!")
+	client.messages.create(
+	to="+18144043047", 
+	from_="+17175430035", 
+	body="Hi, this is a reminder", 
+	media_url="", 
+) 
 
 if __name__ == '__main__':
 	main()
