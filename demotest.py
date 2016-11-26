@@ -5,13 +5,13 @@
 # ================================ RESTART ================================
 def main():
 	print ('Hello World! \n')
-	print('who is there?')
+	print('who is there \n?')
 	while True:
 		try:
 			myName = input()
 			break
 		except Exception as NameError:
-			print("Please put the name in quotations and try again.")
+			print("Please put the name in quotations and try again. \n")
 		
 
 	print("It's good to meet you, "+ myName)
@@ -26,14 +26,14 @@ def sendEmailSignUp(myName):
 	smtpObj.ehlo()
 	smtpObj.starttls()
 	MY_SECRET_PASSWORD=input("Please type in your password")
-	
+
 	ai_agent_email ='developer.pourzand@gmail.com'
 	client_email ='hpourzand@gmail.com'
 	smtpObj.login(ai_agent_email, MY_SECRET_PASSWORD)
 	#SUBJECT ='Glad we are talking ' #+ myName+'!'
 	#BODY= '\n Dear'+ myName + ' glad we got connected. I will send you the list of the companies'+'to apply on a daily basis! \n Sincerely, \n Your ai agent')
 
-	smtpObj.sendmail(ai_agent_email, client_email, 'Subject: Glad we are talking  \nDear'+ myName + ' glad we got connected. I will send you the list of the companies to apply on a daily basis! \n Sincerely, \n Your ai agent')
+	smtpObj.sendmail(ai_agent_email, client_email, 'Subject: Glad we are talking : +1 : \nDear '+ myName + ', \n Glad we got connected. I will send you the list of the companies to apply on a daily basis! \n Sincerely, \n Your ai Agent')
 	smtpObj.quit()
 	print('email sent')
 	return('email sent')
