@@ -26,13 +26,14 @@ def sendEmailSignUp(myName):
 	smtpObj.ehlo()
 	smtpObj.starttls()
 	MY_SECRET_PASSWORD=input("Please type in your password")
-	smtpObj.login('developer.pourzand@gmail.com', MY_SECRET_PASSWORD)
+	
 	ai_agent_email ='developer.pourzand@gmail.com'
 	client_email ='hpourzand@gmail.com'
+	smtpObj.login(ai_agent_email, MY_SECRET_PASSWORD)
 	#SUBJECT ='Glad we are talking ' #+ myName+'!'
-	smtpObj.sendmail(ai_agent_email, client_email, 'Subject: %s' %SUBJECT , '',
-		'\nDear'+ myName + ' glad we got connected. I will send you the list of the companies'+ 
-	 	'to apply on a daily basis! \n Sincerely, \n Your ai agent')
+	#BODY= '\n Dear'+ myName + ' glad we got connected. I will send you the list of the companies'+'to apply on a daily basis! \n Sincerely, \n Your ai agent')
+
+	smtpObj.sendmail(ai_agent_email, client_email, 'Subject: Glad we are talking  \nDear'+ myName + ' glad we got connected. I will send you the list of the companies to apply on a daily basis! \n Sincerely, \n Your ai agent')
 	smtpObj.quit()
 	print('email sent')
 	return('email sent')
